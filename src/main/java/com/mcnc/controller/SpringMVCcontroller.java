@@ -2,15 +2,10 @@ package com.mcnc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
-public class HelloController {
-@RequestMapping("/hello")
+public class SpringMVCcontroller {
+@RequestMapping("/springmvc")
 	public String redirect()
 	{
-		return "viewpage";
+		return "viewpage_spring_mvc";
 	}	
-@RequestMapping("/helloagain")
-public String display()
-{
-	return "final";
-}
 }
