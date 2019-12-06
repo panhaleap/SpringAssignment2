@@ -5,15 +5,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloController {
 	
 	@RequestMapping("hello")
-	public String display(HttpServletRequest req, Model m) {
-		//Read the provided data
-		String name = req.getParameter("name");
-		String pwd = req.getParameter("pwd");
+	public String display(@RequestParam("name")String name, @RequestParam("pwd")String pwd, Model m) {
 
 		if(name.equalsIgnoreCase("admin")) {
 			String msg = "Hello "+ name;
