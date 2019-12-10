@@ -14,7 +14,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.boraji.tutorial.spring.controller")
+@ComponentScan("com.mcnc.controller")
 public class MvcWebConfig implements WebMvcConfigurer {
 
    @Autowired
