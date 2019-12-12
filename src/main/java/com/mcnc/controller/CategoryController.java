@@ -28,7 +28,7 @@ public class CategoryController {
 	public String showListOfCategories(Model model){
 		List<Category> categories = categoryMapper.getAllCategories();
 		model.addAttribute("categoryList", categories);
-		System.out.println(categories);
+		System.out.println(categories.get(1).toString());
 		return CATEGORYLIST;
 	}
 	

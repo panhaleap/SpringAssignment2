@@ -11,6 +11,6 @@
 	</resultMap>
 	
 	<select id="getAllCategories" resultType="category" resultMap="result">
-		SELECT * FROM employee
+		SELECT * FROM mbbs_category
 	</select>
 </mapper>
