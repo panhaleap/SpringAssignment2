@@ -13,4 +13,13 @@
 	<select id="getAllCategories" resultType="category" resultMap="result">
 		SELECT * FROM mbbs_category
 	</select>
+	
+	<!-- KeyProperty is to specify the primary key of Table Category, in here it is id (from class category) -->
+	<!-- useGeneratedKeys = true, means we want primary key to set auto -->
+	<insert id="insertCategory" parameterType="category" keyProperty="id" useGeneratedKeys="false">
+	<!-- #{is the properyOfClassCategory} -->
+	INSERT INTO public.mbbs_category
+	(category_code, category_name, category_desc)
+	VALUES(#{code}, #{name}, #{desc});
+	</insert>
 </mapper>

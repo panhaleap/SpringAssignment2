@@ -13,10 +13,10 @@ import com.mcnc.util.MyBatisUtil;
 public class CategoryMapper {
 	
 	public void saveCategory(Category category){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		session.insert("insertEmployee", employee);
-//		session.commit();
-//		session.close();
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.insert("insertCategory", category);
+		session.commit();
+		session.close();
 	}
 	
 	public void updateCategory(Category category){

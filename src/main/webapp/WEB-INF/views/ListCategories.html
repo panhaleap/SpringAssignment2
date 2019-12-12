@@ -12,6 +12,10 @@
 <body>
 	<div class="container">
 		<h2>List of Category</h2>
+		<button
+			onclick="window.location.href = 'showFormForAddCategory'; return false;"
+			class="btn btn-primary">Add Employee</button>
+			<br/><br/>
 		<table class="table table-striped" id="categoryListTable">
 			<thead>
 				<tr>
@@ -33,12 +37,12 @@
 	</div>
 	
 	<!-- for Pagination and Search-->
-	<!-- datatables.min.js depends on jquery.min.js, that why we put it below. -->
+	<!-- datatables.min.js depends on jquery.min.js, that why we put it below jquery.min.js. -->
 	<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>	
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#categoryListTable").DataTable();
+			$("#categoryListTable").DataTable(); 
 		});
 	</script>
 

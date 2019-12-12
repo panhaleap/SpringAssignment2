@@ -34,11 +34,11 @@ public class CategoryController {
 		return CATEGORYLIST;
 	}
 	
-//	@RequestMapping("/showFormForAdd")
-//	public String addEmployee(Model model){
-//		model.addAttribute("employee", new Employee());
-//		return EMPLOYEE;
-//	}
+	@RequestMapping("/showFormForAddCategory")
+	public String addCategory(Model model){
+		model.addAttribute("category", new Category());
+		return CATEGORY;
+	}
 //	
 //	@RequestMapping("/saveProcess")
 //	public String saveEmployee(@ModelAttribute("employee") Employee employee){
