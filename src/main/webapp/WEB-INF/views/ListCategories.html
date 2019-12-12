@@ -3,14 +3,16 @@
 <head>
 	<meta charset="ISO-8859-1" content="text/html; charset=UTF-8">
 	<link th:href="@{/resources/css/main.css}" rel="stylesheet"/>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	<!-- CSS for pagination -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
+		
 	<title>List of Category</title>
 </head>
 <body>
 	<div class="container">
 		<h2>List of Category</h2>
-		<table class="table table-striped">
+		<table class="table table-striped" id="categoryListTable">
 			<thead>
 				<tr>
 					<th>Code</th>
@@ -29,6 +31,16 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<!-- for Pagination and Search-->
+	<!-- datatables.min.js depends on jquery.min.js, that why we put it below. -->
+	<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#categoryListTable").DataTable();
+		});
+	</script>
 
 
 </body>
