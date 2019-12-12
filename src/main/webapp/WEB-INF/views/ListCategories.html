@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="ISO-8859-1" content="text/html; charset=UTF-8">
 	<link th:href="@{/resources/css/main.css}" rel="stylesheet"/>
-	<title>mobile c&c</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<title>List of Category</title>
 </head>
 <body>
-   <h1 class="hello-title">Spring MVC + Thymeleaf  Hello World example</h1>
+	<div class="container">
+		<h2>List of Category</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Code</th>
+					<th>Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:each="category : ${categoryList}">
+					<tr>
+						<td th:text="${category.code}"></td>
+						<td th:text="${category.name}"></td>
+						<td th:text="${category.desc}"></td>
+					</tr>
+				</th:block>
+			</tbody>
+		</table>
+	</div>
+
+
 </body>
 </html>
