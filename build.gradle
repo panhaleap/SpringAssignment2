@@ -72,4 +72,8 @@ dependencies {
     //c3p0 is an easy-to-use library for augmenting traditional (DriverManager-based) JDBC drivers with JNDI-bindable DataSources,
     //including DataSources that implement Connection and Statement Pooling, as described by the jdbc3 spec and jdbc2 std extension.
     compile ("c3p0:c3p0:0.9.1.2")
+    
+    //Spring JDBC
+	compile ("org.springframework:spring-jdbc:5.2.1.RELEASE")
+
 }

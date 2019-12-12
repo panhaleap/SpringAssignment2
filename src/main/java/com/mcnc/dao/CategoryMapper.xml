@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcnc.dao.CategoryMapper">
+	
+	<resultMap type="category" id="result">
+		<id property="code" column="category_code" />
+		<result property="name" column="category_name" />
+		<result property="desc" column="category_desc" />
+	</resultMap>
+	
+	<select id="getAllCategories" resultType="category" resultMap="result">
+		SELECT * FROM employee
+	</select>
+</mapper>
