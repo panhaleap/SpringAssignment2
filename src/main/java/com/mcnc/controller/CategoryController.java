@@ -33,7 +33,7 @@ public class CategoryController {
 		for(Category category : categories) {
 			System.out.println(category.toString());
 		}
-		return CATEGORYLIST;
+		return CATEGORY_FOULDER + CATEGORYLIST;
 	}
 	
 	@RequestMapping("/showFormForAddCategory")
