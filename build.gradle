@@ -75,5 +75,10 @@ dependencies {
     
     //Spring JDBC
 	compile ("org.springframework:spring-jdbc:5.2.1.RELEASE")
-
+	
+	//CKEditor
+	compile ("com.cksource:ckfinder3:3.5.1")
+	
+	//
+	compile ("org.hibernate:hibernate-validator:6.1.0.Final")
 }

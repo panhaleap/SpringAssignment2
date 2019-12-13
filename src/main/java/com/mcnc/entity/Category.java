@@ -1,10 +1,13 @@
 package com.mcnc.entity;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Category {
 	private String code;
 	private String name;
 	private String desc;
 	
+	@NotEmpty(message = "User name cannot be empty!")
 	public String getCode() {
 		return code;
 	}

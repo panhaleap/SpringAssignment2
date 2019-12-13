@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,6 +24,7 @@ public class CategoryController {
 	
 	private static final String CATEGORY = "Category";
 	private static final String CATEGORYLIST = "ListCategories";
+	private static final String CATEGORY_FOULDER = "category/";
 	
 	@RequestMapping("/listOfCategories")
 	public String showListOfCategories(Model model){
@@ -37,19 +39,15 @@ public class CategoryController {
 	@RequestMapping("/showFormForAddCategory")
 	public String addCategory(Model model){
 		model.addAttribute("category", new Category());
-		return CATEGORY;
+		return CATEGORY_FOULDER +"add"+ CATEGORY;
 	}
-//	
-//	@RequestMapping("/saveProcess")
-//	public String saveEmployee(@ModelAttribute("employee") Employee employee){
-//		if(employee.getId() == null){
-//			employeeMapper.saveEmployee(employee);
-//		}else{
-//			employeeMapper.updateEmployee(employee);
-//		}
-//		
-//		return "redirect:/employee/listOfEmployee";
-//	}
+	
+	@RequestMapping("/saveProcess")
+	public String saveCategory(@ModelAttribute("category") Category category){
+		System.out.println("Saved category");
+		categoryMapper.saveCategory(category);
+		return "redirect:/category/listOfCategories";
+	}
 //	
 //	@RequestMapping("/displayUpdateForm")
 //	public String showUpdateForm(@RequestParam("employeeId") int employeeId, Model model){
