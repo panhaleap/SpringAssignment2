@@ -41,12 +41,11 @@ public class CategoryMapper {
 		return categoryList;
 	}
 	
-	public Category findById(int categoryId){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		Employee employee = (Employee) session.selectOne("findById", employeeId);
-//		session.commit();
-//		session.close();
-//		return employee;
-		return null;
+	public Category findByCode(String categoryCode){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		Category category = (Category) session.selectOne("findByCode", categoryCode);
+		session.commit();
+		session.close();
+		return category;
 	}
 }

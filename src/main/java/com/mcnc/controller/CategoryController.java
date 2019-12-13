@@ -22,9 +22,9 @@ public class CategoryController {
 	@Autowired
 	CategoryMapper categoryMapper;
 	
-	private static final String CATEGORY = "Category";
-	private static final String CATEGORYLIST = "ListCategories";
 	private static final String CATEGORY_FOULDER = "category/";
+	private static final String CATEGORY = CATEGORY_FOULDER + "Category";
+	private static final String CATEGORYLIST = CATEGORY_FOULDER + "ListCategories";
 	
 	@RequestMapping("/listOfCategories")
 	public String showListOfCategories(Model model){
@@ -33,13 +33,13 @@ public class CategoryController {
 		for(Category category : categories) {
 			System.out.println(category.toString());
 		}
-		return CATEGORY_FOULDER + CATEGORYLIST;
+		return CATEGORYLIST;
 	}
 	
 	@RequestMapping("/showFormForAddCategory")
 	public String addCategory(Model model){
 		model.addAttribute("category", new Category());
-		return CATEGORY_FOULDER +"add"+ CATEGORY;
+		return CATEGORY;
 	}
 	
 	@RequestMapping("/saveProcess")
@@ -48,11 +48,12 @@ public class CategoryController {
 		categoryMapper.saveCategory(category);
 		return "redirect:/category/listOfCategories";
 	}
-//	
+	
 //	@RequestMapping("/displayUpdateForm")
-//	public String showUpdateForm(@RequestParam("employeeId") int employeeId, Model model){
-//		model.addAttribute("employee", employeeMapper.findById(employeeId));
-//		return EMPLOYEE;
+//	public String showUpdateForm(@RequestParam("categoryCode") String categoryCode, Model model){
+//		System.out.println(categoryMapper.findByCode(categoryCode).getCode());
+//		//model.addAttribute("category", categoryMapper.findByCode(categoryCode));
+//		return CATEGORY;
 //	}
 //	
 //	@RequestMapping("/displayDeleteForm")
