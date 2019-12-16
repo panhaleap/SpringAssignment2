@@ -24,39 +24,48 @@ public class CategoryController {
 	CategoryMapper categoryMapper;
 	
 	private static final String CATEGORY_FOULDER = "category/";
-	private static final String CATEGORY = CATEGORY_FOULDER + "Category";
+	//private static final String CATEGORY = CATEGORY_FOULDER + "Category";
 	private static final String CATEGORYLIST = CATEGORY_FOULDER + "ListCategories";
+	private static final String ADD = CATEGORY_FOULDER + "Add";
+	private static final String UPDATE = CATEGORY_FOULDER + "Update";
 	
 	@RequestMapping("/listOfCategories")
 	public String showListOfCategories(Model model){
 		List<Category> categories = categoryMapper.getAllCategories();
 		model.addAttribute("categoryList", categories);
-		for(Category category : categories) {
-			System.out.println(category.toString());
-		}
+//		for(Category category : categories) {
+//			System.out.println(category.toString());
+//		}
 		return CATEGORYLIST;
 	}
 	
 	@RequestMapping("/showFormForAddCategory")
 	public String addCategory(Model model){
 		model.addAttribute("category", new Category());
-		return CATEGORY;
+		return ADD;
 	}
 	
 	@RequestMapping("/saveProcess")
 	public String saveCategory(@ModelAttribute("category") Category category){
-		System.out.println("Saved category");
 		categoryMapper.saveCategory(category);
+		System.out.println("Saved category");
+
 		return "redirect:/category/listOfCategories";
 	}
 	
-//	@RequestMapping("/displayUpdateForm")
-//	public String showUpdateForm(@RequestParam("categoryCode") String categoryCode, Model model){
-//		System.out.println(categoryMapper.findByCode(categoryCode).getCode());
-//		//model.addAttribute("category", categoryMapper.findByCode(categoryCode));
-//		return CATEGORY;
-//	}
-//	
+	@RequestMapping("/updateCategory")
+	public String updateCategory(@RequestParam("categoryCode") String categoryCode, Model model){
+		Category category = categoryMapper.findByCode(categoryCode);
+		model.addAttribute("category", category);
+		return UPDATE;
+	}
+	
+	@RequestMapping("/saveUpdate")
+	public String saveUpdateCategory(@RequestParam("oldCategoryCode") String oldCategoryCode, @ModelAttribute("category") Category category){
+		categoryMapper.updateByCode(category, oldCategoryCode);
+		System.out.println("Updated category");
+		return "redirect:/category/listOfCategories";
+	}	
 
 	@RequestMapping("/deleteCategory")
 	public String deleteCategory(@RequestParam("categoryCode") String categoryCode){

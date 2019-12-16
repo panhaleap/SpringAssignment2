@@ -23,9 +23,15 @@
 		VALUES(#{code}, #{name}, #{desc});
 	</insert>
 	
-	<!-- <select id="findByCode" resultType="String" resultMap="result">
-		select * from mbbs_category where category_code = #{code}
-	</select> -->
+	<select id="findByCode" resultType="category" resultMap="result" parameterType="String">
+		select * from mbbs_category where category_code = #{categoryCode}
+	</select>
+	
+	<update id="updateByCode" parameterType="map">
+		UPDATE mbbs_category
+		SET category_code=#{category.code}, category_name=#{category.name}, category_desc=#{category.desc}
+		WHERE category_code = #{oldCategoryCode};
+	</update>
 	
 	<delete id="deleteCategory" parameterType="String">
 		DELETE FROM mbbs_category where category_code = #{categoryCode}

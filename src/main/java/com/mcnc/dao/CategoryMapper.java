@@ -1,6 +1,9 @@
 package com.mcnc.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -19,11 +22,14 @@ public class CategoryMapper {
 		session.close();
 	}
 	
-	public void updateCategory(Category category){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		session.update("updateEmployee", employee);
-//		session.commit();
-//		session.close();
+	public void updateByCode(Category category, String oldCategoryCode){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("category", category);
+		map.put("oldCategoryCode", oldCategoryCode);		
+		session.update("updateByCode", map);
+		session.commit();
+		session.close();
 	}
 	
 	public void deleteCategory(String categoryCode){
