@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div class="container">
+		<h2>Add Category</h2>
 		<form th:action="@{/category/saveProcess}" th:object="${category}">
 			<div class="form-group">
 				<label>Code:</label> <input type="text" class="form-control" th:field="*{code}" placeholder="Enter Code" />

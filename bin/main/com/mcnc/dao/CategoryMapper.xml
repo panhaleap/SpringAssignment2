@@ -23,8 +23,12 @@
 		VALUES(#{code}, #{name}, #{desc});
 	</insert>
 	
-	<select id="findByCode" resultType="category" resultMap="result">
+	<!-- <select id="findByCode" resultType="String" resultMap="result">
 		select * from mbbs_category where category_code = #{code}
-	</select>
+	</select> -->
+	
+	<delete id="deleteCategory" parameterType="String">
+		DELETE FROM mbbs_category where category_code = #{categoryCode}
+	</delete>
 	
 </mapper>

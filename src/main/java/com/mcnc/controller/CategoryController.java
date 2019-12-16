@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mcnc.dao.CategoryMapper;
 import com.mcnc.entity.Category;
@@ -56,9 +57,11 @@ public class CategoryController {
 //		return CATEGORY;
 //	}
 //	
-//	@RequestMapping("/displayDeleteForm")
-//	public String deleteEmployee(@RequestParam("employeeId") int employeeId){
-//		employeeMapper.deleteEmployee(employeeId);
-//		return "redirect:/employee/listOfEmployee";
-//	}
+
+	@RequestMapping("/deleteCategory")
+	public String deleteCategory(@RequestParam("categoryCode") String categoryCode){
+		System.out.println("Delete is here");
+		categoryMapper.deleteCategory(categoryCode);
+		return "redirect:/category/listOfCategories";
+	}
 }

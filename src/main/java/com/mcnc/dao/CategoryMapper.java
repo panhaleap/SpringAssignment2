@@ -26,11 +26,11 @@ public class CategoryMapper {
 //		session.close();
 	}
 	
-	public void deleteCategory(int categoryId){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		session.delete("deleteEmployee", employeeId);
-//		session.commit();
-//		session.close();
+	public void deleteCategory(String categoryCode){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.delete("deleteCategory", categoryCode);
+		session.commit();
+		session.close();
 	}
 	
 	public List<Category> getAllCategories(){
