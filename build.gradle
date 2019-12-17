@@ -83,7 +83,7 @@ dependencies {
 	compile ("org.hibernate:hibernate-validator:6.1.0.Final")
 	
 	// https://mvnrepository.com/artifact/com.ckeditor/ckeditor-java-core
-	//Dependency for ckEditor
+	//Dependency for ckEditor 
 	//compile ("com.ckeditor:ckeditor-java-core:3.5.3")
 	compile ("com.cksource:ckfinder3:3.5.1")
 	
