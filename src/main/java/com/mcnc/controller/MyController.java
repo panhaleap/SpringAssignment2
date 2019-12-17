@@ -13,5 +13,10 @@ public class MyController {
        model.addAttribute("message", "Hello Spring MVC 5!");
        return "hello";
    }
+    
+    @GetMapping("/upload")
+    public String getPageUpload(Model model) {
+       return "upload";
+   }
 }
 

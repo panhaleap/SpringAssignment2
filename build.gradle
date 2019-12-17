@@ -87,4 +87,11 @@ dependencies {
 	//compile ("com.ckeditor:ckeditor-java-core:3.5.3")
 	compile ("com.cksource:ckfinder3:3.5.1")
 	
+	//Dependecy for Upload File
+	// https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
+	compile ("commons-fileupload:commons-fileupload:1.4") 
+	
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	//Commons io for upload File
+    compile ("commons-io:commons-io:2.6")
 }
