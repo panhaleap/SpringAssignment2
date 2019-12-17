@@ -69,7 +69,6 @@ public class CategoryController {
 
 	@RequestMapping("/deleteCategory")
 	public String deleteCategory(@RequestParam("categoryCode") String categoryCode){
-		System.out.println("Delete is here");
 		categoryMapper.deleteCategory(categoryCode);
 		return "redirect:/category/listOfCategories";
 	}
