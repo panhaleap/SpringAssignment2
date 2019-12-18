@@ -62,4 +62,22 @@ public class CategoryMapper {
 		session.commit();
 		session.close();
 	}
+	
+	public Category findByCodeCKEditor(String categoryCode){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		Category category = (Category) session.selectOne("findByCodeCKEditor", categoryCode);
+		session.commit();
+		session.close();
+		return category;
+	}
+	
+	public void updateByCodeCKEditor(Category category, String oldCategoryCode){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("category", category);
+		map.put("oldCategoryCode", oldCategoryCode);		
+		session.update("updateByCodeCKEditor", map);
+		session.commit();
+		session.close();
+	}
 }

@@ -50,4 +50,16 @@
 		(category_code, category_name, category_desc, ck_editor_comment_test)
 		VALUES(#{code}, #{name}, #{desc}, #{ckEditorCommentTest});
 	</insert>
+	
+	<select id="findByCodeCKEditor" resultType="category" resultMap="resultOfTestCKEditor" parameterType="String">
+		select * from mbbs_category where category_code = #{categoryCode}
+	</select>	
+	
+	<update id="updateByCodeCKEditor" parameterType="map">
+		UPDATE mbbs_category
+		SET 
+		category_code=#{category.code}, category_name=#{category.name}, 
+		category_desc=#{category.desc}, ck_editor_comment_test=#{category.ckEditorCommentTest}		
+		WHERE category_code = #{oldCategoryCode};		
+	</update>
 </mapper>

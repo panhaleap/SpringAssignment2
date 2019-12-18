@@ -7,23 +7,12 @@
 	<title>mobile c&c</title>
 </head>
 <body>
-   <!-- <h1 class="hello-title">Spring MVC + Thymeleaf + CKEditor Hello World example</h1>
-   <form action="" method="post" enctype="multipart/form-data">
-		<div>
-			<textarea cols="80" id="ckEditorTest" name="ckEditorTest" rows="10" placeholder="Leave your comments here..."></textarea>
-		</div>
-		<div>
-			<input type="submit" value="Submit"/>
-		</div>		
-	</form>
-	<script type="text/javascript">
-			CKEDITOR.replace('ckEditorTest');
-	</script> -->
 	<div class="container">
-		<h2 class="hello-title">Spring MVC + Thymeleaf + CKEditor Hello World example</h2>
-		<form th:action="@{/saveUpdateCKEditor}" th:object="${category}" enctype="multipart/form-data">
+		<h2>Update CKEditor Category</h2>
+		<form th:action="@{/saveUpdateCKEditor}" th:object="${category}">	
 			<div class="form-group">
 				<label>Code:</label> <input type="text" class="form-control" th:field="*{code}" placeholder="Enter Code" />
+				<input type="hidden" th:value="${category.code}" id="oldCategoryCode" name="oldCategoryCode"/>
 			</div>
 			<div class="form-group">
 				<label>Name:</label> <input type="text" class="form-control" th:field="*{name}" placeholder="Enter Name"/>
@@ -40,7 +29,6 @@
 			</div>
 		</form>
 	</div>
-	
 	<script type="text/javascript">
 			CKEDITOR.replace('ckEditorCommentTest');
 	</script>
