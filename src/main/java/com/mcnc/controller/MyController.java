@@ -55,5 +55,10 @@ public class MyController {
 		System.out.println("Updated category with ckEditor");
 		return "redirect:/category/listOfCategories";
 	}
+	
+	@RequestMapping("/faqBoard")
+	public String showFAQboard(Model model){
+		return "faq-board/faq-board";
+	}
 }
 
