@@ -54,4 +54,12 @@ public class CategoryMapper {
 		session.close();
 		return category;
 	}
+	
+	//Test CKEditor Comment
+	public void saveCategoryTestCKEditor(Category category){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.insert("insertCategoryTestCKEditor", category);
+		session.commit();
+		session.close();
+	}
 }

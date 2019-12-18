@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<!-- <script src = "//cdn.ckeditor.com/4.5.6/standard/ckeditor.js" > </script> -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 	<script th:src="@{/resources/ckeditor/ckeditor.js}"></script>
 	<meta charset="ISO-8859-1">
 	<title>mobile c&c</title>
 </head>
 <body>
-   <h1 class="hello-title">Spring MVC + Thymeleaf  Hello World example</h1>
+   <!-- <h1 class="hello-title">Spring MVC + Thymeleaf + CKEditor Hello World example</h1>
    <form action="" method="post" enctype="multipart/form-data">
 		<div>
-			<textarea cols="80" name="ckEditorTest" rows="10" placeholder="Leave your comments here..."></textarea>
+			<textarea cols="80" id="ckEditorTest" name="ckEditorTest" rows="10" placeholder="Leave your comments here..."></textarea>
 		</div>
-		<script type="text/javascript">
-			CKEDITOR.replace('ckEditorTest');
-		</script>		
+		<div>
+			<input type="submit" value="Submit"/>
+		</div>		
 	</form>
+	<script type="text/javascript">
+			CKEDITOR.replace('ckEditorTest');
+	</script> -->
+	<div class="container">
+		<h2 class="hello-title">Spring MVC + Thymeleaf + CKEditor Hello World example</h2>
+		<form th:action="@{/ckEditorSaveProcess}" th:object="${category}" enctype="multipart/form-data">
+			<div class="form-group">
+				<label>Code:</label> <input type="text" class="form-control" th:field="*{code}" placeholder="Enter Code" />
+			</div>
+			<div class="form-group">
+				<label>Name:</label> <input type="text" class="form-control" th:field="*{name}" placeholder="Enter Name"/>
+			</div>
+			<div class="form-group">
+				<label>Description:</label><input type="text" th:field="*{desc}" class="form-control" placeholder="Enter Description"/>
+			</div>
+			<div>
+				<textarea cols="80" id="ckEditorCommentTest" name="ckEditorCommentTest" rows="10" th:field="*{ckEditorCommentTest}" placeholder="Leave your comments here..."></textarea>
+			</div>
+			<div class="pull-right">
+				<input type="submit" value="Submit" class="btn btn-primary"/>
+				<input onclick="window.location.href = 'listOfCategories'" class="btn btn-secondary" value="Cancel"/>
+			</div>
+		</form>
+	</div>
+	
+	<script type="text/javascript">
+			CKEDITOR.replace('ckEditorCommentTest');
+	</script>
 </body>
 </html>

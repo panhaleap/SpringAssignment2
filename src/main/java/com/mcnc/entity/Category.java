@@ -6,7 +6,14 @@ public class Category {
 	private String code;
 	private String name;
 	private String desc;
+	private String ckEditorCommentTest;
 	
+	public String getCkEditorCommentTest() {
+		return ckEditorCommentTest;
+	}
+	public void setCkEditorCommentTest(String ckEditorCommentTest) {
+		this.ckEditorCommentTest = ckEditorCommentTest;
+	}
 	@NotEmpty(message = "User name cannot be empty!")
 	public String getCode() {
 		return code;
@@ -28,7 +35,8 @@ public class Category {
 	}
 	@Override
 	public String toString() {
-		return "Category [code=" + code + ", name=" + name + ", desc=" + desc + "]";
+		return "Category [code=" + code + ", name=" + name + ", desc=" + desc + ", ckEditorCommentTest="
+				+ ckEditorCommentTest + "]";
 	}
 	
 }

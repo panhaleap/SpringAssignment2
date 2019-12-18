@@ -37,4 +37,17 @@
 		DELETE FROM mbbs_category where category_code = #{categoryCode}
 	</delete>
 	
+	<!-- Test CKEdiotr -->
+	<resultMap type="category" id="resultOfTestCKEditor">
+		<id property="code" column="category_code" />
+		<result property="name" column="category_name" />
+		<result property="desc" column="category_desc" />
+		<result property="ckEditorCommentTest" column="ck_editor_comment_test" />
+	</resultMap>
+	<insert id="insertCategoryTestCKEditor" parameterType="category" keyProperty="code" useGeneratedKeys="false">
+	<!-- #{is the propery Of Class Category} -->
+		INSERT INTO public.mbbs_category
+		(category_code, category_name, category_desc, ck_editor_comment_test)
+		VALUES(#{code}, #{name}, #{desc}, #{ckEditorCommentTest});
+	</insert>
 </mapper>
