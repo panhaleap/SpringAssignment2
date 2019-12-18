@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+	<script src = "//cdn.ckeditor.com/4.5.6/standard/ckeditor.js" > </script>
+	<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 	<meta charset="ISO-8859-1">
 	<link th:href="@{/resources/css/main.css}" rel="stylesheet"/>
 	<title>mobile c&c</title>
@@ -8,5 +10,24 @@
 <body>
    <h1 class="hello-title">Spring MVC + Thymeleaf  Hello World example</h1>
    <p th:text = "${message}"></p>
+   <form>
+		<textarea rows = "5" cols = "5" id = "editor" > This is my textarea </textarea>
+		<br>
+		<input type = "submit" name = "submit" value = "Post" onclick="getText();" />
+		
+		<script type="text/javascript"> 
+			CKEDITOR.replace('editor',{ uicolor: '#9AB8F3'});
+		</script>
+	</form>
+	<!-- <script type="text/javascript"> 
+		function getText(e){
+			e.preventDefault();
+			var data = CKEDITOR.instances['editor'].getData();
+			console.log(data);
+			
+			AJAX
+		}
+	</script> -->
+	
 </body>
 </html>
