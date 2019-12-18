@@ -18,5 +18,10 @@ public class MyController {
     public String getPageUpload(Model model) {
        return "upload";
    }
+    
+   @GetMapping("/ckEditor")
+   public String getPageCKeditor(Model model) {
+	return "ckEditor";
+}
 }
 
