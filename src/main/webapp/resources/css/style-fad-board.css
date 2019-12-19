@@ -60,10 +60,11 @@ section{
 }
 
 .answer{
-/* 	max-height: 0;
-	overflow: hidden; */
+	max-height: 0;
+	overflow: hidden;
 	position: relative;
 	background-color: #212838;
+	transition: max-height 650ms;
 }
 
 .answer::before{
@@ -81,6 +82,23 @@ section{
 	color: rgba(255,255,255,.6);
 	font-size: 1.4rem;
 	padding: 2rem;
+}
+
+/* target means the link we want to link to */
+/* when we click answer inside the item, we will have this particular style */
+.accordion-item:target .answer{
+	max-height: 20rem;
+}
+
+/* when we click on class "accordion-item", the class "ion-md-add" inside class "accordion-link" will disappear */
+/* in short in reality, when we click Exmaple: question ==> button + disappear */
+.accordion-item:target .accordion-link .ion-md-add{
+	display: none;
+}
+
+/* when answer shows ==> icon - show up */
+.accordion-item:target .accordion-link .ion-md-remove{
+	display: block;
 }
 
 
