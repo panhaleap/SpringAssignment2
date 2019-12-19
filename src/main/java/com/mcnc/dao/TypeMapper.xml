@@ -3,13 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mcnc.dao.TypeMapper">	
-	<resultMap type="Type" id="result_type">
+	<resultMap type="type" id="result_type">
 		<id property="code" column="type_code" />
 		<result property="name" column="type_name" />
 		<result property="desc" column="type_desc" />
-		<result property="category" column="category_code" />		
+		<association property="category" javaType="category">
+			<id property="code" column="category_code" />
+			<result property="name" column="category_name" />
+			<result property="desc" column="category_desc" />
+		</association>
 	</resultMap>
-	<select id="getAllCategories" resultType="category" resultMap="result">
-		SELECT * FROM mbbs_category
+	<select id="getAllTypes" resultType="type" resultMap="result_type">
+		SELECT t.type_code, t.type_name, t.type_desc, 
+		c.category_code, c.category_name, c.category_desc
+		FROM 
+		mbbs_type t
+		inner join
+		mbbs_category c on t.category_code = c.category_code;
 	</select>
 </mapper>

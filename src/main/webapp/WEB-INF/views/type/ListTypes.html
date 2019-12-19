@@ -11,30 +11,32 @@
 </head>
 <body>
 	<div class="container">
-		<h2>List of Category</h2>
+		<h2>List of Type</h2>
 		<button
-			onclick="window.location.href = 'showFormForAddCategory'; return false;"
-			class="btn btn-primary">Add Category</button>
+			onclick="window.location.href = 'showFormForAddType'; return false;"
+			class="btn btn-primary">Add Type</button>
 			<br/><br/>
-		<table class="table table-striped" id="categoryListTable">
+		<table class="table table-striped" id="typeListTable">
 			<thead>
 				<tr>
 					<th>Code</th>
 					<th>Name</th>
 					<th>Description</th>
+					<th>Category</th>
 					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				<th:block th:each="category : ${categoryList}">
+				<th:block th:each="type : ${typeList}">
 					<tr>
-						<td th:text="${category.code}"></td>
-						<td th:text="${category.name}"></td>
-						<td th:text="${category.desc}"></td>
-						<td>
+						<td th:text="${type.code}"></td>
+						<td th:text="${type.name}"></td>
+						<td th:text="${type.desc}"></td>
+						<td th:text="${type.category.name}"></td>
+						<!-- <td>
 							<a class="btn btn-primary" th:href="@{'/category/updateCategory?categoryCode=' + ${category.code}}">Update</a>
 							<a class="btn btn-danger" th:href="@{'/category/deleteCategory?categoryCode=' + ${category.code}}">Delete</a>							
-						</td>
+						</td> -->
 					</tr>
 				</th:block>
 			</tbody>
@@ -47,7 +49,7 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>	
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#categoryListTable").DataTable(); 
+			$("#typeListTable").DataTable(); 
 		});
 	</script>
 

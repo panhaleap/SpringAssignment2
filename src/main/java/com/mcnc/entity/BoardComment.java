@@ -1,6 +1,6 @@
 package com.mcnc.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class BoardComment {
 	private int id;

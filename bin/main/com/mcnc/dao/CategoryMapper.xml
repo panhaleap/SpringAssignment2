@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mcnc.dao.CategoryMapper">
 	
-	<resultMap type="category" id="result">
+	<resultMap type="category" id="result_category">
 		<id property="code" column="category_code" />
 		<result property="name" column="category_name" />
 		<result property="desc" column="category_desc" />
 	</resultMap>
-	<select id="getAllCategories" resultType="category" resultMap="result">
+	<select id="getAllCategories" resultType="category" resultMap="result_category">
 		SELECT * FROM mbbs_category
 	</select>
 	
@@ -23,7 +23,7 @@
 		VALUES(#{code}, #{name}, #{desc});
 	</insert>
 	
-	<select id="findByCode" resultType="category" resultMap="result" parameterType="String">
+	<select id="findByCode" resultType="category" resultMap="result_category" parameterType="String">
 		select * from mbbs_category where category_code = #{categoryCode}
 	</select>
 	
