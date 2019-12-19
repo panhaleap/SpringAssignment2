@@ -21,4 +21,14 @@
 		inner join
 		mbbs_category c on t.category_code = c.category_code;
 	</select>
+	
+	<!-- KeyProperty is to specify the primary key of Table Type, in here it is id (from class type) -->
+	<!-- useGeneratedKeys = true, means we want primary key to set auto -->
+	<!-- parameterType type is alias name, we specified before -->
+	<insert id="insertType" parameterType="type" keyProperty="code" useGeneratedKeys="false">
+	<!-- #{is the propery Of Class Type} -->		
+		INSERT INTO public.mbbs_type
+		(type_code, type_name, type_desc, category_code)
+		VALUES(#{code}, #{name}, #{desc}, #{category.code});
+	</insert>
 </mapper>

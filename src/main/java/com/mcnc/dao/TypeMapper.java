@@ -16,12 +16,12 @@ import com.mcnc.util.MyBatisUtil;
 @Repository
 public class TypeMapper {
 	
-//	public void saveCategory(Type type){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		session.insert("insertType", type);
-//		session.commit();
-//		session.close();
-//	}
+	public void saveType(Type type){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.insert("insertType", type);
+		session.commit();
+		session.close();
+	}
 	
 //	public void updateByCode(Category category, String oldCategoryCode){
 //		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();

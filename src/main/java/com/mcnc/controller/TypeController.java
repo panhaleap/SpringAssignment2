@@ -1,13 +1,17 @@
 package com.mcnc.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mcnc.dao.CategoryMapper;
 import com.mcnc.dao.TypeMapper;
+import com.mcnc.entity.Category;
 import com.mcnc.entity.Type;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,9 @@ public class TypeController {
 	@Autowired
 	TypeMapper typeMapper;
 	
+	@Autowired
+	CategoryMapper categoryMapper;
+	
 	private static final String TYPE_FOULDER = "type/";
 	private static final String TYPELIST = TYPE_FOULDER + "ListTypes";
 	private static final String ADD = TYPE_FOULDER + "Add";
@@ -31,26 +38,37 @@ public class TypeController {
 	@RequestMapping("/listOfTypes")
 	public String showListOfTypes(Model model){
 		List<Type> types = typeMapper.getAllTypes();
-		for(Type type: types) {
-			System.out.println(type.getCategory().getName());
-		}
+		/*
+		 * for(Type type: types) { System.out.println(type.getCategory().getName()); }
+		 */
 		model.addAttribute("typeList", types);
 		return TYPELIST;
 	}
 	
-//	@RequestMapping("/showFormForAddCategory")
+//	@RequestMapping("/showFormForAddType")
 //	public String addCategory(Model model){
-//		model.addAttribute("category", new Category());
+//		Map<String, Object> mapType=new HashMap<>();
+//		List<Category> categories = categoryMapper.getAllCategories();
+//		mapType.put("type", new Type());
+//		mapType.put("categories", categories);
+//		model.addAttribute("mapType", mapType);
 //		return ADD;
 //	}
-//	
-//	@RequestMapping("/saveProcess")
-//	public String saveCategory(@ModelAttribute("category") Category category){
-//		categoryMapper.saveCategory(category);
-//		System.out.println("Saved category");
-//
-//		return "redirect:/category/listOfCategories";
-//	}
+	
+	@RequestMapping("/showFormForAddType")
+	public String addCategory(Model model){
+		List<Category> categories = categoryMapper.getAllCategories();
+		model.addAttribute("type", new Type());
+		model.addAttribute("categories", categories);
+		return ADD;
+	}
+	
+	@RequestMapping("/saveProcess")
+	public String saveCategory(@ModelAttribute("type") Type type){
+		typeMapper.saveType(type);
+		System.out.println("Saved type");
+		return "redirect:/type/listOfTypes";
+	}
 //	
 //	@RequestMapping("/updateCategory")
 //	public String updateCategory(@RequestParam("categoryCode") String categoryCode, Model model){
