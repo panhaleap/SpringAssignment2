@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcnc.dao.TypeMapper">	
+	<resultMap type="Type" id="result_type">
+		<id property="code" column="type_code" />
+		<result property="name" column="type_name" />
+		<result property="desc" column="type_desc" />
+		<result property="category" column="category_code" />		
+	</resultMap>
+	<select id="getAllCategories" resultType="category" resultMap="result">
+		SELECT * FROM mbbs_category
+	</select>
+</mapper>

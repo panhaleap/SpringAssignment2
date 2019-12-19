@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mcnc.dao.CategoryMapper">
+<mapper namespace="com.mcnc.dao.BoardCommentMapper">
 	
-	<resultMap type="category" id="result">
+	<resultMap type="boardComment" id="boardComment_result">
 		<id property="id" column="comment_id" />
 		<result property="boardId" column="board_id" />
 		<result property="comments" column="comment_text" />
