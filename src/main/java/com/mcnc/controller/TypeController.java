@@ -38,9 +38,9 @@ public class TypeController {
 	@RequestMapping("/listOfTypes")
 	public String showListOfTypes(Model model){
 		List<Type> types = typeMapper.getAllTypes();
-		/*
-		 * for(Type type: types) { System.out.println(type.getCategory().getName()); }
-		 */
+		
+		  for(Type type: types) { System.out.println(type.getCategoryCode()); }
+		 
 		model.addAttribute("typeList", types);
 		return TYPELIST;
 	}

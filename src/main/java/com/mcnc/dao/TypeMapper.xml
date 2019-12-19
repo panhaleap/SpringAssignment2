@@ -7,6 +7,7 @@
 		<id property="code" column="type_code" />
 		<result property="name" column="type_name" />
 		<result property="desc" column="type_desc" />
+		<result property="categoryCode" column="category_code" />
 		<association property="category" javaType="category">
 			<id property="code" column="category_code" />
 			<result property="name" column="category_name" />
@@ -29,6 +30,6 @@
 	<!-- #{is the propery Of Class Type} -->		
 		INSERT INTO public.mbbs_type
 		(type_code, type_name, type_desc, category_code)
-		VALUES(#{code}, #{name}, #{desc}, #{category.code});
+		VALUES(#{code}, #{name}, #{desc}, #{categoryCode});
 	</insert>
 </mapper>
