@@ -14,20 +14,15 @@
 	<section>
 		<div class="container">
 			<h1 class="welcome-text">Frequently Asked Questions</h1>
-			<div class="accordion">
-				<div class="accordion-item" id="question1">
-					<a class="accordion-link" href="#question1">
-						Why do we use it?
+			<div class="accordion" th:each="board : ${boardList}">
+				<div class="accordion-item" th:id="'board' + ${board.id}">
+					<a class="accordion-link" th:href="'#board' + ${board.id}" th:text="${board.title}">
+						<!-- Why do we use it? -->
 						<i class="icon ion-md-add"></i>
 						<i class="icon ion-md-remove"></i>
 					</a>
 					<div class="answer">
-						<p>
-							It is a long established fact that a reader will be 
-							distracted by the readable content of a page when looking 
-							at its layout. The point of using Lorem Ipsum is that it 
-							has a more-or-less normal distribution of letters, as opposed
-							to using 'Content here, content here', making it look like readable English.							
+						<p th:text="${board.html}">							
 						</p>					
 					</div>
 				</div>

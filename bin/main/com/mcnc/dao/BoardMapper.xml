@@ -34,7 +34,8 @@
 		inner join
 		mbbs_type ty on mb.type_code = ty.type_code
 		inner join
-		mbbs_category c on ty.category_code = c.category_code;
+		mbbs_category c on ty.category_code = c.category_code
+		order by c.category_code;
 	</select>
 	
 </mapper>

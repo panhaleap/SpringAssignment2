@@ -20,17 +20,17 @@ public class FaqBoardController {
 	BoardMapper boardMapper;
 	
 	private static final String FAQBOARD_FOULDER = "faq-board/";
-	private static final String FAQBOARD_LIST = FAQBOARD_FOULDER + "ListCategories";
+	private static final String FAQBOARD_LIST = FAQBOARD_FOULDER + "faq-board";
 	private static final String ADD = FAQBOARD_FOULDER + "Add";
 	private static final String UPDATE = FAQBOARD_FOULDER + "Update";
 	
 	@RequestMapping("/listOfFaq")
 	public String showListOfFaq(Model model){
 		List<Board> boards = boardMapper.getAllBoards();
-		for(Board b : boards) {
-			System.out.println(b.getType().getCategory().getName());
-		}
-		//model.addAttribute("boardList", boards);
+//		for(Board b : boards) {
+//			System.out.println(b.getHtml() + ", " + b.getTitle());
+//		}
+		model.addAttribute("boardList", boards);
 		return FAQBOARD_LIST;
 	}
 	
