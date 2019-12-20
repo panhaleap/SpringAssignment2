@@ -6,7 +6,8 @@
   <typeAliases>
      <typeAlias type="com.mcnc.entity.Category" alias="category"/>
      <typeAlias type="com.mcnc.entity.BoardComment" alias="boardComment"/>
-     <typeAlias type="com.mcnc.entity.Type" alias="type"/>     
+     <typeAlias type="com.mcnc.entity.Type" alias="type"/>
+     <typeAlias type="com.mcnc.entity.Board" alias="board"/>     
   </typeAliases>  
   <environments default="development">
     <environment id="development">
@@ -22,6 +23,7 @@
   <mappers>
     <mapper resource="com/mcnc/dao/CategoryMapper.xml" />
     <mapper resource="com/mcnc/dao/BoardCommentMapper.xml"/>
-    <mapper resource="com/mcnc/dao/TypeMapper.xml"/>    
+    <mapper resource="com/mcnc/dao/TypeMapper.xml"/>
+    <mapper resource="com/mcnc/dao/BoardMapper.xml"/>  
   </mappers>
 </configuration>
