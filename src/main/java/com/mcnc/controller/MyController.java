@@ -58,7 +58,7 @@ public class MyController {
 	
 	@RequestMapping("/faqBoard")
 	public String showFAQboard(Model model){
-		return "faq-board/faq-board";
+		return "faq-board/faq-board2";
 	}
 }
 
