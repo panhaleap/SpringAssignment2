@@ -5,17 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mcnc.dao.CategoryMapper;
 import com.mcnc.entity.Category;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller @RequestMapping("/category")
@@ -24,7 +18,6 @@ public class CategoryController {
 	CategoryMapper categoryMapper;
 	
 	private static final String CATEGORY_FOULDER = "category/";
-	//private static final String CATEGORY = CATEGORY_FOULDER + "Category";
 	private static final String CATEGORYLIST = CATEGORY_FOULDER + "ListCategories";
 	private static final String ADD = CATEGORY_FOULDER + "Add";
 	private static final String UPDATE = CATEGORY_FOULDER + "Update";

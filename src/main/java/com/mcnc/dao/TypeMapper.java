@@ -1,14 +1,11 @@
 package com.mcnc.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.mcnc.entity.Category;
 import com.mcnc.entity.Type;
 import com.mcnc.util.MyBatisUtil;
 

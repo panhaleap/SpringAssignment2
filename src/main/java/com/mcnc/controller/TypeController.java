@@ -1,25 +1,17 @@
 package com.mcnc.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mcnc.dao.CategoryMapper;
 import com.mcnc.dao.TypeMapper;
 import com.mcnc.entity.Category;
 import com.mcnc.entity.Type;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller @RequestMapping("/type")
@@ -37,23 +29,10 @@ public class TypeController {
 	
 	@RequestMapping("/listOfTypes")
 	public String showListOfTypes(Model model){
-		List<Type> types = typeMapper.getAllTypes();
-		
-		  //for(Type type: types) { System.out.println(type.getCategoryCode()); }
-		 
+		List<Type> types = typeMapper.getAllTypes();		 
 		model.addAttribute("typeList", types);
 		return TYPELIST;
 	}
-	
-//	@RequestMapping("/showFormForAddType")
-//	public String addCategory(Model model){
-//		Map<String, Object> mapType=new HashMap<>();
-//		List<Category> categories = categoryMapper.getAllCategories();
-//		mapType.put("type", new Type());
-//		mapType.put("categories", categories);
-//		model.addAttribute("mapType", mapType);
-//		return ADD;
-//	}
 	
 	@RequestMapping("/showFormForAddType")
 	public String addCategory(Model model){
