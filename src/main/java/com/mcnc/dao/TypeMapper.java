@@ -23,15 +23,15 @@ public class TypeMapper {
 		session.close();
 	}
 	
-//	public void updateByCode(Category category, String oldCategoryCode){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		HashMap<String, Object> map=new HashMap<String, Object>();
-//		map.put("category", category);
-//		map.put("oldCategoryCode", oldCategoryCode);		
-//		session.update("updateByCode", map);
-//		session.commit();
-//		session.close();
-//	}
+	public void updateByCode(Type type, String oldTypeCode){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("type", type);
+		map.put("oldTypeCode", oldTypeCode);		
+		session.update("updateByTypeCode", map);
+		session.commit();
+		session.close();
+	}
 //	
 //	public void deleteCategory(String categoryCode){
 //		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();

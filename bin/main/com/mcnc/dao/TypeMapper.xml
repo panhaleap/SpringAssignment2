@@ -42,4 +42,10 @@
 		mbbs_category c on t.category_code = c.category_code
 		WHERE t.type_code = #{typeCode};
 	</select>
+	
+	<update id="updateByTypeCode" parameterType="map">
+		UPDATE public.mbbs_type
+		SET type_code=#{type.code}, type_name=#{type.name}, type_desc=#{type.desc}, category_code=#{type.categoryCode}
+		WHERE type_code=#{oldTypeCode};
+	</update>
 </mapper>

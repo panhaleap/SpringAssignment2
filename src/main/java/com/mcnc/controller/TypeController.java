@@ -78,13 +78,13 @@ public class TypeController {
 		model.addAttribute("categories", categories);
 		return UPDATE;
 	}
-//	
-//	@RequestMapping("/saveUpdate")
-//	public String saveUpdateCategory(@RequestParam("oldCategoryCode") String oldCategoryCode, @ModelAttribute("category") Category category){
-//		categoryMapper.updateByCode(category, oldCategoryCode);
-//		System.out.println("Updated category");
-//		return "redirect:/category/listOfCategories";
-//	}	
+	
+	@RequestMapping("/saveUpdate")
+	public String saveUpdateCategory(@RequestParam("oldTypeCode") String oldTypeCode, @ModelAttribute("type") Type type){
+		typeMapper.updateByCode(type, oldTypeCode);
+		System.out.println("Updated type");
+		return "redirect:/type/listOfTypes";
+	}	
 //
 //	@RequestMapping("/deleteCategory")
 //	public String deleteCategory(@RequestParam("categoryCode") String categoryCode){
