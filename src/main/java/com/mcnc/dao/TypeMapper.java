@@ -32,14 +32,14 @@ public class TypeMapper {
 		session.commit();
 		session.close();
 	}
-//	
-//	public void deleteCategory(String categoryCode){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		session.delete("deleteCategory", categoryCode);
-//		session.commit();
-//		session.close();
-//	}
-//	
+	
+	public void deleteType(String typeCode){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.delete("deleteType", typeCode);
+		session.commit();
+		session.close();
+	}
+	
 	public List<Type> getAllTypes(){
 		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
 		List<Type> typeList = session.selectList("getAllTypes");

@@ -85,10 +85,10 @@ public class TypeController {
 		System.out.println("Updated type");
 		return "redirect:/type/listOfTypes";
 	}	
-//
-//	@RequestMapping("/deleteCategory")
-//	public String deleteCategory(@RequestParam("categoryCode") String categoryCode){
-//		categoryMapper.deleteCategory(categoryCode);
-//		return "redirect:/category/listOfCategories";
-//	}
+
+	@RequestMapping("/deleteType")
+	public String deleteType(@RequestParam("typeCode") String typeCode){
+		typeMapper.deleteType(typeCode);
+		return "redirect:/type/listOfTypes";
+	}
 }
