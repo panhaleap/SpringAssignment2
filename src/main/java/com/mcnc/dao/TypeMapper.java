@@ -47,14 +47,14 @@ public class TypeMapper {
 		session.close();
 		return typeList;
 	}
-//	
-//	public Category findByCode(String categoryCode){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		Category category = (Category) session.selectOne("findByCode", categoryCode);
-//		session.commit();
-//		session.close();
-//		return category;
-//	}
+	
+	public Type findByCode(String typeCode){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		Type type = (Type) session.selectOne("findByTypeCode", typeCode);
+		session.commit();
+		session.close();
+		return type;
+	}
 //	
 //	//Test CKEditor Comment
 //	public void saveCategoryTestCKEditor(Category category){

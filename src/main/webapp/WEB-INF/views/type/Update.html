@@ -8,23 +8,31 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Update Category</h2>
-		<!-- <form th:action="@{/category/saveUpdate?categoryCode=' + ${category.code}}" th:object="${category}"> -->
-		<form th:action="@{/category/saveUpdate}" th:object="${category}">	
+		<h2>Update Type</h2>
+		<form th:action="@{/type/saveUpdate}" th:object="${type}">
 			<div class="form-group">
 				<label>Code:</label> <input type="text" class="form-control" th:field="*{code}" placeholder="Enter Code" />
-				<input type="hidden" th:value="${category.code}" id="oldCategoryCode" name="oldCategoryCode"/>
 			</div>
 			<div class="form-group">
 				<label>Name:</label> <input type="text" class="form-control" th:field="*{name}" placeholder="Enter Name"/>
 			</div>
 			<div class="form-group">
-				<label>Description:</label><input type="text" th:field="*{desc}" class="form-control" placeholder="Enter Description"/>
+				<label>Description:</label> <input type="text" class="form-control" th:field="*{desc}" placeholder="Enter Description"/>
 			</div>
+			<div class="form-group">
+				<label>Category:</label>
+				<select th:field="*{categoryCode}" class="form-control">
+                         <option value=""> -- </option>
+                         <option th:each="category : ${categories}"
+                            th:value="${category.code}"
+                            th:utext="${category.name}"/>
+                            <!-- selected="selected">A carrier</option> -->
+                  </select>
+			</div>			
 			<div class="pull-right">
 				<input type="submit" value="Submit" class="btn btn-primary"/>
-				<input onclick="window.location.href = 'listOfCategories'" class="btn btn-secondary" value="Cancel"/>
-			</div>
+				<input onclick="window.location.href = 'listOfTypes'" class="btn btn-secondary" value="Cancel"/>
+			</div>		
 		</form>
 	</div>
 </body>

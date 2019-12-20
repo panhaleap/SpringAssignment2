@@ -39,7 +39,7 @@ public class TypeController {
 	public String showListOfTypes(Model model){
 		List<Type> types = typeMapper.getAllTypes();
 		
-		  for(Type type: types) { System.out.println(type.getCategoryCode()); }
+		  //for(Type type: types) { System.out.println(type.getCategoryCode()); }
 		 
 		model.addAttribute("typeList", types);
 		return TYPELIST;
@@ -69,13 +69,15 @@ public class TypeController {
 		System.out.println("Saved type");
 		return "redirect:/type/listOfTypes";
 	}
-//	
-//	@RequestMapping("/updateCategory")
-//	public String updateCategory(@RequestParam("categoryCode") String categoryCode, Model model){
-//		Category category = categoryMapper.findByCode(categoryCode);
-//		model.addAttribute("category", category);
-//		return UPDATE;
-//	}
+	
+	@RequestMapping("/updateType")
+	public String updateCategory(@RequestParam("typeCode") String typeCode, Model model){
+		Type type = typeMapper.findByCode(typeCode);
+		List<Category> categories = categoryMapper.getAllCategories();
+		model.addAttribute("type", type);
+		model.addAttribute("categories", categories);
+		return UPDATE;
+	}
 //	
 //	@RequestMapping("/saveUpdate")
 //	public String saveUpdateCategory(@RequestParam("oldCategoryCode") String oldCategoryCode, @ModelAttribute("category") Category category){

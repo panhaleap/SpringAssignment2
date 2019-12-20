@@ -32,4 +32,14 @@
 		(type_code, type_name, type_desc, category_code)
 		VALUES(#{code}, #{name}, #{desc}, #{categoryCode});
 	</insert>
+	
+	<select id="findByTypeCode" resultType="type" resultMap="result_type" parameterType="String">
+		SELECT t.type_code, t.type_name, t.type_desc, 
+		c.category_code, c.category_name, c.category_desc
+		FROM 
+		mbbs_type t
+		inner join
+		mbbs_category c on t.category_code = c.category_code
+		WHERE t.type_code = #{typeCode};
+	</select>
 </mapper>
