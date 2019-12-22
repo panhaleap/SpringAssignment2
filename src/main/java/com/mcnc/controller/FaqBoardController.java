@@ -44,7 +44,6 @@ public class FaqBoardController {
 		Board board = boardMapper.findByBoardId(boardId);
 		List<BoardComment> boardComments = boardCommentMapper.findByBoardId(boardId);
 		model.addAttribute("board", board);
-		System.out.println(boardComments.get(0).getComments());
 		model.addAttribute("commentList", boardComments);
 		return DETAIL;
 	}

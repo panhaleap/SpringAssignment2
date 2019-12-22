@@ -36,19 +36,27 @@
 						<br>
 						<br>
 						<h1 style="font-size: 2em; color: white">Comments:</h1>
-						<div>
+						<div th:if="!${#lists.isEmpty(commentList)}">
+							<hr>
 							<div style="font-size: 1.5em; color: white" th:each="cmt : ${commentList}">
-								<p th:utext="${cmt.comments} +' :(commented by '+ ${cmt.createdBy} +')'"></p>
-							</div>					
+								<p th:utext="${cmt?.comments}"></p>
+							</div>
+							<hr>				
 							<br>
 							<br>
 							<br>
+							<!-- <input type="hidden" th:value="${board.id}" id="boardId" name="boardId"/>
+							Add new Comment below!
+							<textarea cols="10" id="comments" name="comments" rows="5"
+								placeholder="Leave your comments here...">
+							</textarea> -->
+						</div>
+						<div></div>
 							<input type="hidden" th:value="${board.id}" id="boardId" name="boardId"/>
 							<!-- Add new Comment below! -->
 							<textarea cols="10" id="comments" name="comments" rows="5"
 								placeholder="Leave your comments here...">
 							</textarea>
-						</div>
 						<div class="pull-right">
 							<input type="submit" value="Post Your Comment" class="btn btn-primary" /> 
 							<input onclick="window.location.href = 'listOfFaq'" class="btn btn-secondary" value="Cancel" />
