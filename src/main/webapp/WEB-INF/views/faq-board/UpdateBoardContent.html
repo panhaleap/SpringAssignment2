@@ -20,54 +20,20 @@
 </head>
 <body>
 	<section>
-		<div class="container">
+		<form class="container">
 			<h1 class="welcome-text" th:utext="${board.title}">
 				<!-- Question title goes here! -->
 			</h1>
 			<div class="accordion">
 				<div class="accordion-item">
 					<div class="accordion-link" th:text="${board.html}">
-						<!-- Answer goes here! -->
-						sdfasdf
+						<label>Question:</label> <input type="text" class="form-control" th:text="*{code}" placeholder="Enter Code" />
+						<input type="hidden" th:value="${category.code}" id="oldCategoryCode" name="oldCategoryCode"/>
 					</div>
-					<a class="btn btn-primary" th:href="@{'/faq/updateFaqContent?boardId=' + ${board.id}}">Edit Content</a>
-					<hr>
-					<form th:action="@{/faq/saveComment}">
-						<br>
-						<br>
-						<br>
-						<h1 style="font-size: 2em; color: white">Comments:</h1>
-						<div th:if="!${#lists.isEmpty(commentList)}">
-							<hr>
-							<div style="font-size: 1.5em; color: white; margin: 10px" th:each="cmt : ${commentList}">
-								<p th:utext="${cmt?.comments}"></p>
-								<hr>
-							</div>
-							<hr>				
-							<br>
-							<br>
-							<br>
-							<!-- <input type="hidden" th:value="${board.id}" id="boardId" name="boardId"/>
-							Add new Comment below!
-							<textarea cols="10" id="comments" name="comments" rows="5"
-								placeholder="Leave your comments here...">
-							</textarea> -->
-						</div>
-						<div></div>
-							<input type="hidden" th:value="${board.id}" id="boardId" name="boardId"/>
-							<!-- Add new Comment below! -->
-							<textarea cols="10" id="comments" name="comments" rows="5"
-								placeholder="Leave your comments here...">
-							</textarea>
-						<div class="pull-right">
-							<input type="submit" value="Post Your Comment" class="btn btn-primary"  /> 
-							<input onclick="window.location.href = 'listOfFaq'" class="btn btn-secondary" value="Cancel" />
-						</div>
-					</form>
 				</div>
 			</div>
 
-		</div>
+		</form>
 	</section>
 </body>
 

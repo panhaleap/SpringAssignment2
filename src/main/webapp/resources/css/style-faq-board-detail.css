@@ -4,5 +4,14 @@
 }
 
 hr{
-	border-width: 0.7px
+	border-width: 0.7px;
+	color: black;
+}
+
+section{
+	background-color: white !important;
+}
+
+.welcome-text{
+	color: #283042 !important;
 }

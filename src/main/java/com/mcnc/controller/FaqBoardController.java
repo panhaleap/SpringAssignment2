@@ -27,7 +27,7 @@ public class FaqBoardController {
 	private static final String FAQBOARD_FOULDER = "faq-board/";
 	private static final String FAQBOARD_LIST = FAQBOARD_FOULDER + "faq-board";
 	private static final String DETAIL = FAQBOARD_FOULDER + "faq-board-detail";
-	private static final String UPDATE = FAQBOARD_FOULDER + "Update";
+	private static final String UPDATE = FAQBOARD_FOULDER + "UpdateBoardContent";
 	
 	@RequestMapping("/listOfFaq")
 	public String showListOfFaq(Model model){
@@ -57,13 +57,13 @@ public class FaqBoardController {
 
 		return "redirect:/faq/faqBoardDetail?boardId=" + boardId;
 	}
-//	
-//	@RequestMapping("/updateCategory")
-//	public String updateCategory(@RequestParam("categoryCode") String categoryCode, Model model){
-//		Category category = categoryMapper.findByCode(categoryCode);
-//		model.addAttribute("category", category);
-//		return UPDATE;
-//	}
+	
+	@RequestMapping("/updateFaqContent")
+	public String updateCategory(@RequestParam("boardId") int boardId, Model model){
+		Board board = boardMapper.findByBoardId(boardId);
+		model.addAttribute("board", board);
+		return UPDATE;
+	}
 //	
 //	@RequestMapping("/saveUpdate")
 //	public String saveUpdateCategory(@RequestParam("oldCategoryCode") String oldCategoryCode, @ModelAttribute("category") Category category){
