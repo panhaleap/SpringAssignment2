@@ -1,5 +1,8 @@
 package com.mcnc.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -10,9 +13,15 @@ import com.mcnc.util.MyBatisUtil;
 @Repository
 public class BoardCommentMapper {
 	
-	public void saveCategory(BoardComment boardComment){
+	public void saveComment(BoardComment boardComment, int boardId){
 		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		session.insert("insertBoardComment", boardComment);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		boardComment.setCreatedBy("panha leap");
+		boardComment.setUpdatedBy("panha leap");
+		System.out.println("****** "+boardComment.getComments());
+		map.put("boardComment", boardComment);
+		map.put("boardId", boardId);
+		session.insert("insertBoardComment", map);
 		session.commit();
 		session.close();
 	}
@@ -42,11 +51,11 @@ public class BoardCommentMapper {
 //		return categoryList;
 //	}
 //	
-//	public Category findByCode(String categoryCode){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		Category category = (Category) session.selectOne("findByCode", categoryCode);
-//		session.commit();
-//		session.close();
-//		return category;
-//	}
+	public List<BoardComment> findByBoardId(int boardId){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		List<BoardComment> boardComments = session.selectList("findCommentsByBoardId", boardId);
+		session.commit();
+		session.close();
+		return boardComments;
+	}
 }

@@ -25,7 +25,7 @@
 						<p th:text="${board.html}" >
 						<!-- Answer goes here! -->						
 						</p>
-						<a th:href="@{'/faq/listOfFaq'}">(Detail)</a>
+						<a th:href="@{'/faq/faqBoardDetail?boardId=' + ${board.id}}">(Detail)</a>
 					</div>
 				</div>
 			</div>

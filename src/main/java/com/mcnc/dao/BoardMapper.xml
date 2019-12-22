@@ -27,6 +27,7 @@
 			<result property="name" column="category_name" />
 		</association>
 	</resultMap>
+
 		
 	<select id="getAllBoards" resultType="board" resultMap="result_board">
 		select mb.*, ty.type_name, c.category_code, c.category_name from 
@@ -38,4 +39,14 @@
 		order by c.category_code;
 	</select>
 	
+	<select id="findByBoardId" resultType="board" resultMap="result_board" parameterType="int">
+		select mb.*, ty.type_name, c.category_code, c.category_name from 
+		mbbs_board mb
+		inner join
+		mbbs_type ty on mb.type_code = ty.type_code
+		inner join
+		mbbs_category c on ty.category_code = c.category_code
+		where mb.board_id = #{boardId}
+		order by c.category_code;
+	</select>	
 </mapper>

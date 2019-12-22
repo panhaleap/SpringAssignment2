@@ -47,14 +47,14 @@ public class BoardMapper {
 		session.close();
 		return boardList;
 	}
-//	
-//	public Category findByCode(String categoryCode){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		Category category = (Category) session.selectOne("findByCode", categoryCode);
-//		session.commit();
-//		session.close();
-//		return category;
-//	}
+	
+	public Board findByBoardId(int boardId){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		Board board = (Board) session.selectOne("findByBoardId", boardId);
+		session.commit();
+		session.close();
+		return board;
+	}
 //	
 //	//Test CKEditor Comment
 //	public void saveCategoryTestCKEditor(Category category){

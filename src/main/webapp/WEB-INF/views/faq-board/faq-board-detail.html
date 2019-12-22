@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatiable" content="ie=edge">
+	<title>FAQ Board</title>
+	<!-- Ion icons -->
+	<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="../../../resources/css/style-faq-board.css">
+	<link rel="stylesheet" href="../../../resources/css/style-faq-board-detail.css">
+	<link th:href="../../../resources/css/style-faq-board-detail.css}" rel="stylesheet">
+	<script th:src="../../../resources/ckeditor/ckeditor.js}"></script> -->
+	
+	
+	<link th:href="@{/resources/css/style-faq-board.css}" rel="stylesheet">
+	<link th:href="@{/resources/css/style-faq-board-detail.css}" rel="stylesheet">
+	<script th:src="@{/resources/ckeditor/ckeditor.js}"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<section>
+		<div class="container">
+			<h1 class="welcome-text" th:text="${board.title}">
+				<!-- Question title goes here! -->
+			</h1>
+			<div class="accordion">
+				<div class="accordion-item">
+					<div class="accordion-link" th:text="${board.html}">
+						<!-- Answer goes here! -->
+						sdfasdf
+					</div>
+					<hr>
+					<form th:action="@{/faq/saveComment}">
+						<br>
+						<br>
+						<br>
+						<h1 style="font-size: 2em; color: white">Comments:</h1>
+						<div>
+							<div style="font-size: 1.5em; color: white" th:each="cmt : ${commentList}">
+								<p th:utext="${cmt.comments} +' :(commented by '+ ${cmt.createdBy} +')'"></p>
+							</div>					
+							<br>
+							<br>
+							<br>
+							<input type="hidden" th:value="${board.id}" id="boardId" name="boardId"/>
+							<!-- Add new Comment below! -->
+							<textarea cols="10" id="comments" name="comments" rows="5"
+								placeholder="Leave your comments here...">
+							</textarea>
+						</div>
+						<div class="pull-right">
+							<input type="submit" value="Post Your Comment" class="btn btn-primary" /> 
+							<input onclick="window.location.href = 'listOfFaq'" class="btn btn-secondary" value="Cancel" />
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</section>
+</body>
+
+<script type="text/javascript">
+			CKEDITOR.replace('comments');
+	</script>
+</html>
