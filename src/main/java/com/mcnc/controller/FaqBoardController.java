@@ -64,13 +64,13 @@ public class FaqBoardController {
 		model.addAttribute("board", board);
 		return UPDATE;
 	}
-//	
-//	@RequestMapping("/saveUpdate")
-//	public String saveUpdateCategory(@RequestParam("oldCategoryCode") String oldCategoryCode, @ModelAttribute("category") Category category){
-//		categoryMapper.updateByCode(category, oldCategoryCode);
-//		System.out.println("Updated category");
-//		return "redirect:/category/listOfCategories";
-//	}	
+	
+	@RequestMapping("/saveUpdate")
+	public String saveUpdateCategory(@ModelAttribute("board") Board board){
+		boardMapper.updateByBoardId(board);
+		System.out.println("Updated board");
+		return "redirect:/faq/faqBoardDetail?boardId=" + board.getId();
+	}	
 //
 //	@RequestMapping("/deleteCategory")
 //	public String deleteCategory(@RequestParam("categoryCode") String categoryCode){

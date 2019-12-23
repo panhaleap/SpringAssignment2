@@ -23,15 +23,12 @@ public class BoardMapper {
 //		session.close();
 //	}
 //	
-//	public void updateByCode(Category category, String oldCategoryCode){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		HashMap<String, Object> map=new HashMap<String, Object>();
-//		map.put("category", category);
-//		map.put("oldCategoryCode", oldCategoryCode);		
-//		session.update("updateByCode", map);
-//		session.commit();
-//		session.close();
-//	}
+	public void updateByBoardId(Board board){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();		
+		session.update("updateByBoardId", board);
+		session.commit();
+		session.close();
+	}
 //	
 //	public void deleteCategory(String categoryCode){
 //		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
