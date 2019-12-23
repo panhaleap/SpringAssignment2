@@ -46,7 +46,7 @@
 			<input type="submit" value="Update" class="btn btn-primary"/>
 		</form> -->
 		
-		<form action="uploadFile" enctype="multipart/form-data">
+		<form th:action="@{/uploadFile}" enctype="multipart/form-data" method="POST" th:object="${board}">
 			<label style="color:white; font-size: 1.33em; margin-top: 10px">Upload File:</label>
 			File to upload: <input type="file" name="file"><br />
 			<input type="submit" value="Upload"> Press here to upload the file!
