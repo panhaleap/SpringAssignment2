@@ -20,23 +20,39 @@
 </head>
 <body>
 	<section>
-		<form class="container" th:action="@{/faq/saveUpdate}" th:object="${board}">
+		<!-- <form class="container" th:action="@{/faq/saveUpdate}" th:object="${board}" enctype="multipart/form-data"> -->
+		<!-- <form class="container" th:action="@{/faq/saveUpdate}" enctype="multipart/form-data">
 			<h1 class="welcome-text" th:utext="${board.title}">
-				<!-- Question title goes here! -->
+				Question title goes here!
 			</h1>
 			<input type="hidden" th:field="*{id}" id="id" name="id"/>
 			<div class="accordion">
 				<div class="accordion-item">
-					<!-- <div class="accordion-link"> -->
+					<div class="accordion-link">
 					<textarea cols="10" id="html" name="html" rows="5"
 								placeholder="Leave your comments here..." th:field="*{html}" class="accordion-link">
 					</textarea>
-					<input type="submit" value="Update" class="btn btn-primary"  /> 
+					<label style="color:white; font-size: 1.33em; margin-top: 10px">Upload File:</label>
+					<input class="form-control-file" type="file" placeholder="Upload your file">
+					<input type="submit" value="Update" class="btn btn-primary"/>
 					<a th:href="@{'/faq/faqBoardDetail?boardId=' + ${board.id}}" class="btn btn-secondary">Cancel</a>
 				</div>
 			</div>
 
+		</form> -->
+		<!-- <form th:action="@{/faq/saveUpdate}" enctype="multipart/form-data">
+			<label style="color:white; font-size: 1.33em; margin-top: 10px">Upload File:</label>
+			<input class="form-control-file" type="file" placeholder="Upload your file">
+			<input type="submit" value="Update" class="btn btn-primary"/>
+		</form> -->
+		
+		<form action="uploadFile" enctype="multipart/form-data">
+			<label style="color:white; font-size: 1.33em; margin-top: 10px">Upload File:</label>
+			File to upload: <input type="file" name="file"><br />
+			<input type="submit" value="Upload"> Press here to upload the file!
+	
 		</form>
+		
 	</section>
 </body>
 

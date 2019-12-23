@@ -12,9 +12,12 @@ import com.mcnc.dao.CategoryMapper;
 import com.mcnc.entity.Board;
 import com.mcnc.entity.BoardComment;
 import com.mcnc.entity.Category;
+import com.mcnc.service.UploadFileConfiguration;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller @RequestMapping("/faq")
 public class FaqBoardController {
@@ -66,13 +69,17 @@ public class FaqBoardController {
 	}
 	
 	@RequestMapping("/saveUpdate")
-	public String saveUpdateCategory(@RequestParam ("html") String html, @ModelAttribute("board") Board board){
+	public String saveUpdateCategory(/* @RequestParam ("html") String html, */ 
+									@RequestParam("file") MultipartFile file, @ModelAttribute("board") Board board){
+		UploadFileConfiguration uploadFileConfiguration = new UploadFileConfiguration();
+		uploadFileConfiguration.uploadFileHandler(file);
 		board = boardMapper.findByBoardId(board.getId());
 		board.setUpdatedBy("panha leap");
-		board.setHtml(html);
-		boardMapper.updateByBoardId(board);
+		/*
+		 * board.setHtml(html); boardMapper.updateByBoardId(board);
+		 */
 		System.out.println("=======> " + board.toString());
-		return "redirect:/faq/faqBoardDetail?boardId=" + board.getId();
+		return "redirect:/faq/faqBoardDetail?boardId=" + 1;//board.getId();
 	}	
 //
 //	@RequestMapping("/deleteCategory")
