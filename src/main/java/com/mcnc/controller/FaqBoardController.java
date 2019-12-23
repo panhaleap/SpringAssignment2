@@ -72,16 +72,18 @@ public class FaqBoardController {
 	}
 	
 	@RequestMapping(value="/saveUpdate", method = RequestMethod.POST)
-	public String saveUpdateCategory(/* @RequestParam ("html") String html, */ 
-									@RequestParam("file") MultipartFile file, @ModelAttribute("board") Board board){
+	public String saveUpdateCategory(@RequestParam ("html") String html,  
+									@RequestParam("file") MultipartFile file, 
+									@ModelAttribute("board") Board board){
 		uploadFileConfiguration.uploadFileHandler(file);
-//		board = boardMapper.findByBoardId(board.getId());
-//		board.setUpdatedBy("panha leap");
-		/*
-		 * board.setHtml(html); boardMapper.updateByBoardId(board);
-		 */
+		board = boardMapper.findByBoardId(board.getId());
+		board.setUpdatedBy("panha leap");		
+		board.setHtml(html); 
+		
+		boardMapper.updateByBoardId(board);
+		 
 		System.out.println("=======> " + board.toString());
-		return "redirect:/faq/faqBoardDetail?boardId=" + 1;//board.getId();
+		return "redirect:/faq/faqBoardDetail?boardId=" + board.getId();
 	}	
 //
 //	@RequestMapping("/deleteCategory")
