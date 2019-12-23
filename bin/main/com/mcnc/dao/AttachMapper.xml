@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcnc.dao.AttachMapper">
+	
+	<resultMap type="category" id="result_attach">
+		<id property="" column="" />
+		<result property="" column="" />
+		<result property="" column="" />
+	</resultMap>
+	<select id="getAllAttachs" resultType="attach" resultMap="result_attach">
+		SELECT * FROM mbbs_category
+	</select>
+</mapper>
