@@ -30,6 +30,7 @@ public class UploadFileConfiguration {
 				String rootPath = System.getProperty(propertyConfiguration.getImageDirectory());
 				System.out.println("=========> root path: "+ rootPath);
 				File dir = new File(rootPath + File.separator + "tmpFiles");
+				//File dir = new File("tmpFiles");
 				if (!dir.exists())
 					dir.mkdirs();
 

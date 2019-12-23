@@ -5,11 +5,25 @@
 <mapper namespace="com.mcnc.dao.AttachMapper">
 	
 	<resultMap type="category" id="result_attach">
-		<id property="" column="" />
-		<result property="" column="" />
-		<result property="" column="" />
+		<id property="id" column="attach_id" />
+		<result property="boardId" column="board_id" />
+		<result property="name" column="attach_name" />
+		<result property="originalName" column="attach_original_name" />
+		<result property="ext" column="attach_ext" />
+		<result property="size" column="attach_size" />
+		<result property="contentType" column="attach_content_type" />
+		<result property="path" column="attach_path" />
+		<result property="data" column="attach_data" />
+		<result property="createdBy" column="created_by" />
+		<result property="createdDate" column="created_date" />
+		<association property="board" javaType="board">
+			<id property="id" column="board_id"/>
+			<result property="typeCode" column="type_code"/>
+			<result property="title" column="board_title"/>
+			<result property="html" column="board_html"/>
+		</association>
 	</resultMap>
-	<select id="getAllAttachs" resultType="attach" resultMap="result_attach">
+	<select id="findByBoardId" resultType="attach" resultMap="result_attach">
 		SELECT * FROM mbbs_category
 	</select>
 </mapper>

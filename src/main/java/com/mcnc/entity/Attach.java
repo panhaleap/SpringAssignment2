@@ -87,7 +87,5 @@ public class Attach extends TrackTimestamp{
 				+ ", data=" + data 
 				+ ", createdBy()=" + getCreatedBy()
 				+ ", createdDate()=" + getCreatedDate() + "]";
-	}
-	
-	
+	}	
 }
