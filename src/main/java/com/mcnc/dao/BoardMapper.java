@@ -24,7 +24,8 @@ public class BoardMapper {
 //	}
 //	
 	public void updateByBoardId(Board board){
-		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();		
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		System.out.println(">>>>>>>>> "+board.getHtml());
 		session.update("updateByBoardId", board);
 		session.commit();
 		session.close();

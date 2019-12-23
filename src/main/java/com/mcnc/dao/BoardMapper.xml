@@ -58,6 +58,15 @@
 		WHERE category_code = #{oldCategoryCode};		
 	</update>
 	
-	<update id="updateByBoardId">
+	<update id="updateByBoardId" parameterType="board">
+		UPDATE public.mbbs_board
+		SET type_code= #{typeCode}, 
+			board_title= #{title},
+			board_html= #{html},
+			board_view_count= #{viewCount}, 
+			is_displayed= #{isDisplayed},
+			updated_by= #{updatedBy}, 
+			updated_date= CURRENT_TIMESTAMP
+		WHERE board_id = #{id};			
 	</update>
 </mapper>

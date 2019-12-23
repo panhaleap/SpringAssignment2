@@ -66,9 +66,12 @@ public class FaqBoardController {
 	}
 	
 	@RequestMapping("/saveUpdate")
-	public String saveUpdateCategory(@ModelAttribute("board") Board board){
+	public String saveUpdateCategory(@RequestParam ("html") String html, @ModelAttribute("board") Board board){
+		board = boardMapper.findByBoardId(board.getId());
+		board.setUpdatedBy("panha leap");
+		board.setHtml(html);
 		boardMapper.updateByBoardId(board);
-		System.out.println("Updated board");
+		System.out.println("=======> " + board.toString());
 		return "redirect:/faq/faqBoardDetail?boardId=" + board.getId();
 	}	
 //
