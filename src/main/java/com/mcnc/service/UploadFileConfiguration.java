@@ -7,10 +7,12 @@ import java.io.FileOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mcnc.controller.FileUploadController;
 
+@Component
 public class UploadFileConfiguration {
 	
 	private static final Logger logger = LoggerFactory
@@ -44,7 +46,8 @@ public class UploadFileConfiguration {
 				System.out.println("You successfully uploaded file="+ file.getOriginalFilename() +" to "+ dir.getPath());
 				return true;
 			} catch (Exception e) {
-				System.out.println("You failed to upload " + " => " + e.getMessage());
+				System.out.println("You failed to upload " + " * => " + e.getMessage());
+				e.printStackTrace();
 				return false;
 			}
 		} else {

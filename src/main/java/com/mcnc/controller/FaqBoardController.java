@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mcnc.dao.BoardCommentMapper;
 import com.mcnc.dao.BoardMapper;
@@ -26,6 +27,8 @@ public class FaqBoardController {
 	
 	@Autowired
 	BoardCommentMapper boardCommentMapper;
+	@Autowired
+	UploadFileConfiguration uploadFileConfiguration;
 	
 	private static final String FAQBOARD_FOULDER = "faq-board/";
 	private static final String FAQBOARD_LIST = FAQBOARD_FOULDER + "faq-board";
@@ -68,13 +71,12 @@ public class FaqBoardController {
 		return UPDATE;
 	}
 	
-	@RequestMapping("/saveUpdate")
+	@RequestMapping(value="/saveUpdate", method = RequestMethod.POST)
 	public String saveUpdateCategory(/* @RequestParam ("html") String html, */ 
 									@RequestParam("file") MultipartFile file, @ModelAttribute("board") Board board){
-		UploadFileConfiguration uploadFileConfiguration = new UploadFileConfiguration();
 		uploadFileConfiguration.uploadFileHandler(file);
-		board = boardMapper.findByBoardId(board.getId());
-		board.setUpdatedBy("panha leap");
+//		board = boardMapper.findByBoardId(board.getId());
+//		board.setUpdatedBy("panha leap");
 		/*
 		 * board.setHtml(html); boardMapper.updateByBoardId(board);
 		 */
