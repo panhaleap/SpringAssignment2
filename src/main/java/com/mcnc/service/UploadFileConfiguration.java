@@ -42,7 +42,7 @@ public class UploadFileConfiguration {
 				
 				//String rootPath = System.getProperty("user.dir");
 				//System.out.println("=========> root path: "+ rootPath);
-				File dir = new File(rootPath + File.separator + "tmpFiles");
+				File dir = new File(rootPath + File.separator + "Files");
 				//getClass().getResource(name)
 				//File dir = new File("user.dir" + File.separator + "tmpFiles");
 				//System.out.println(">>>>>>>>>Project save to "+ dir.getPath());
@@ -50,10 +50,14 @@ public class UploadFileConfiguration {
 					dir.mkdirs();
 
 				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + file.getOriginalFilename());
-				BufferedOutputStream stream = new BufferedOutputStream(
-						new FileOutputStream(serverFile));
+				//File serverFile = new File((dir.getAbsolutePath() + File.separator + file.getOriginalFilename()), file.getOriginalFilename());
+				File serverFile = new File((dir.getAbsolutePath() + File.separator), file.getOriginalFilename());
+				if(serverFile.exists()) {
+					System.out.println("File already exists");
+					return null;
+				}
+				
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 				stream.write(bytes);
 				stream.close();
 				

@@ -29,7 +29,9 @@
 					<div class="accordion-link" th:utext="${board.html}">
 						<!-- Answer goes here! -->
 					</div>
-					<a class="btn btn-primary" th:href="@{'/faq/updateFaqContent?boardId=' + ${board.id}}">Edit Content</a>
+					<div class="accordion-link">
+						<a class="btn btn-primary" th:href="@{'/faq/updateFaqContent?boardId=' + ${board.id}}">Edit Content</a>
+					</div>
 					<hr>
 					<form th:action="@{/faq/saveComment}">
 						<br>
