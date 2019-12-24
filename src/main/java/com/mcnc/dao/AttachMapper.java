@@ -48,9 +48,9 @@ public class AttachMapper {
 //		return categoryList;
 //	}
 //	
-	public List<Attach> findById(int boardId){
+	public List<Attach> findByBoardId(int boardId){
 		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		List<Attach> attachs = session.selectList("findByBoardId", boardId);
+		List<Attach> attachs = session.selectList("findAttachsByBoardId", boardId);
 		session.commit();
 		session.close();
 		return attachs;

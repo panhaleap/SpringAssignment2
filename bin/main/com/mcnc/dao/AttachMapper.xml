@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mcnc.dao.AttachMapper">
 	
-	<resultMap type="category" id="result_attach">
+	<resultMap type="attach" id="result_attach">
 		<id property="id" column="attach_id" />
 		<result property="boardId" column="board_id" />
 		<result property="name" column="attach_name" />
@@ -13,7 +13,7 @@
 		<result property="size" column="attach_size" />
 		<result property="contentType" column="attach_content_type" />
 		<result property="path" column="attach_path" />
-		<result property="data" column="attach_data" />
+		<!-- <result property="data" column="attach_data" jdbcType="BLOB"/> -->
 		<result property="createdBy" column="created_by" />
 		<result property="createdDate" column="created_date" />
 		<association property="board" javaType="board">
@@ -23,7 +23,37 @@
 			<result property="html" column="board_html"/>
 		</association>
 	</resultMap>
-	<select id="findByBoardId" resultType="attach" resultMap="result_attach">
-		SELECT * FROM mbbs_category
+	<select id="findAttachsByBoardId" resultType="attach" resultMap="result_attach" parameterType="int">
+		select mba.*, 
+		b.type_code, b.board_title, b.board_html 
+		from mbbs_board_attach mba
+		inner join mbbs_board b on b.board_id = mba.board_id
+		where b.board_id = #{boardId}
 	</select>
+	
+	<insert id="insertAttachFile" parameterType="attach" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO public.mbbs_board_attach
+		(board_id, 
+		attach_name, 
+		attach_original_name,
+		attach_ext, 
+		attach_size,
+		attach_content_type, 
+		attach_path, 
+		attach_data,
+		created_by, 
+		created_date)
+		
+		VALUES(
+		#{boardId}, 
+		#{name}, 
+		#{originalName}, 
+		'', 
+		#{size}, 
+		#{contentType}, 
+		#{path}, 
+		'something',
+		#{createdBy},
+		CURRENT_TIMESTAMP);
+	</insert>
 </mapper>

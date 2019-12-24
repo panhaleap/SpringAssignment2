@@ -78,7 +78,7 @@ public class FaqBoardController {
 		uploadFileConfiguration.uploadFileHandler(file);
 		board = boardMapper.findByBoardId(board.getId());
 		board.setUpdatedBy("panha leap");		
-		board.setHtml(html); 
+		board.setHtml(html);
 		
 		boardMapper.updateByBoardId(board);
 		 

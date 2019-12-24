@@ -1,7 +1,5 @@
 package com.mcnc.entity;
 
-import java.sql.Blob;
-
 public class Attach extends TrackTimestamp{
 	private int id;
 	private int boardId;
@@ -12,7 +10,7 @@ public class Attach extends TrackTimestamp{
 	private Long size;
 	private String contentType;
 	private String path;
-	private Blob data;
+	private byte[] data;
 	public int getId() {
 		return id;
 	}
@@ -67,10 +65,11 @@ public class Attach extends TrackTimestamp{
 	public void setPath(String path) {
 		this.path = path;
 	}
-	public Blob getData() {
+	
+	public byte[] getData() {
 		return data;
 	}
-	public void setData(Blob data) {
+	public void setData(byte[] data) {
 		this.data = data;
 	}
 	@Override
@@ -85,7 +84,7 @@ public class Attach extends TrackTimestamp{
 				+ ", contentType=" + contentType 
 				+ ", path=" + path
 				+ ", data=" + data 
-				+ ", createdBy()=" + getCreatedBy()
-				+ ", createdDate()=" + getCreatedDate() + "]";
+				+ ", createdBy=" + getCreatedBy()
+				+ ", createdDate=" + getCreatedDate() + "]";
 	}	
 }
