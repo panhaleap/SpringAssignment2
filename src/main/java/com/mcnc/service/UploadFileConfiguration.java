@@ -3,6 +3,8 @@ package com.mcnc.service;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +25,7 @@ public class UploadFileConfiguration {
 	/**
 	 * Upload single file using Spring Controller
 	 */
-	public boolean uploadFileHandler(MultipartFile file) {
+	public Map<String, Object> uploadFileHandler(MultipartFile file) {
 		if (!file.isEmpty()) {
 			try {
 				byte[] bytes = file.getBytes();
@@ -41,19 +43,26 @@ public class UploadFileConfiguration {
 						new FileOutputStream(serverFile));
 				stream.write(bytes);
 				stream.close();
-
+				
+				Map<String, Object> fileDetail =new HashMap<>();
+				fileDetail.put("name", file.getName());
+				fileDetail.put("originalName", file.getOriginalFilename());
+				fileDetail.put("size", file.getSize());
+				fileDetail.put("contentType", file.getContentType());
+				fileDetail.put("path", dir.getPath());
+				
 				logger.info("Server File Location="
 						+ serverFile.getAbsolutePath());
 				System.out.println("You successfully uploaded file="+ file.getOriginalFilename() +" to "+ dir.getPath());
-				return true;
+				return fileDetail;
 			} catch (Exception e) {
 				System.out.println("You failed to upload " + " * => " + e.getMessage());
 				e.printStackTrace();
-				return false;
+				return null;
 			}
 		} else {
 			System.out.println("You failed to upload " + " because the file was empty.");
-			return false;
+			return null;
 		}
 	}
 }

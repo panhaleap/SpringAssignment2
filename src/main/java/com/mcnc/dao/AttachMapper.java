@@ -16,12 +16,12 @@ import com.mcnc.util.MyBatisUtil;
 @Repository
 public class AttachMapper {
 	
-//	public void saveCategory(Category category){
-//		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-//		session.insert("insertCategory", category);
-//		session.commit();
-//		session.close();
-//	}
+	public void insertAttachFile(Map<String, Object> fileDetail){
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		session.insert("insertAttachFile", fileDetail);
+		session.commit();
+		session.close();
+	}
 //	
 //	public void updateByCode(Category category, String oldCategoryCode){
 //		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();

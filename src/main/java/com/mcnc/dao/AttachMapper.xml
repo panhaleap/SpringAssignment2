@@ -31,7 +31,7 @@
 		where b.board_id = #{boardId}
 	</select>
 	
-	<insert id="insertAttachFile" parameterType="attach" keyProperty="id" useGeneratedKeys="true">
+	<insert id="insertAttachFile" parameterType="map" keyProperty="id" useGeneratedKeys="true">
 		INSERT INTO public.mbbs_board_attach
 		(board_id, 
 		attach_name, 
