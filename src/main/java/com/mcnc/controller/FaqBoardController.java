@@ -1,5 +1,6 @@
 package com.mcnc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import com.mcnc.dao.AttachMapper;
 import com.mcnc.dao.BoardCommentMapper;
 import com.mcnc.dao.BoardMapper;
 import com.mcnc.dao.CategoryMapper;
+import com.mcnc.entity.Attach;
 import com.mcnc.entity.Board;
 import com.mcnc.entity.BoardComment;
 import com.mcnc.entity.Category;
@@ -52,8 +54,13 @@ public class FaqBoardController {
 	@RequestMapping("/faqBoardDetail")
 	public String showFaqDetail(@RequestParam("boardId") int boardId, Model model){
 		Board board = boardMapper.findByBoardId(boardId);
+		
+		List<Attach> attachList = attachMapper.findByBoardId(boardId);
+		model.addAttribute("attachList", attachList);
+		
 		List<BoardComment> boardComments = boardCommentMapper.findByBoardId(boardId);
 		model.addAttribute("board", board);
+		
 		model.addAttribute("commentList", boardComments);
 		return DETAIL;
 	}

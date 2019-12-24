@@ -32,9 +32,9 @@
 					<div class="accordion-link">
 						<a class="btn btn-primary" th:href="@{'/faq/updateFaqContent?boardId=' + ${board.id}}">Edit Content</a>
 					</div>
-					<div>
-						<img class = "image" alt="" src="https://www.online-image-editor.com/styles/2019/images/power_girl.png">
-						<img class = "image" alt="" src="https://www.online-image-editor.com/styles/2019/images/power_girl.png">
+					<div th:if="!${#lists.isEmpty(attachList)}" th:each="attach : ${attachList}">
+						<!-- <img class = "image" alt="" th:src="@{/resources/Files/power_girl.png}"> -->
+						<img class = "image" alt="" th:src="@{/resources/Files/{path}(path=${attach.originalName})}">
 					</div>
 					<hr>
 					<form th:action="@{/faq/saveComment}">
