@@ -3,6 +3,8 @@ package com.mcnc.service;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,10 +31,21 @@ public class UploadFileConfiguration {
 		if (!file.isEmpty()) {
 			try {
 				byte[] bytes = file.getBytes();
-				String rootPath = System.getProperty(propertyConfiguration.getImageDirectory());
-				System.out.println("=========> root path: "+ rootPath);
+				String rootPath = propertyConfiguration.getImageDirectory();
+				
+				//System.out.println(">>>>>>>>> Class Path: "+ System.getProperty("java.class.path"));
+
+				//System.out.println("=======> "+UploadFileConfiguration.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+				
+				//Path pathBase = Paths.get(ClassLoader.getSystemResource("resources").toURI());
+				//System.out.println("PathBase==========>>>> " + pathBase);
+				
+				//String rootPath = System.getProperty("user.dir");
+				//System.out.println("=========> root path: "+ rootPath);
 				File dir = new File(rootPath + File.separator + "tmpFiles");
-				//File dir = new File("tmpFiles");
+				//getClass().getResource(name)
+				//File dir = new File("user.dir" + File.separator + "tmpFiles");
+				//System.out.println(">>>>>>>>>Project save to "+ dir.getPath());
 				if (!dir.exists())
 					dir.mkdirs();
 
@@ -44,6 +57,7 @@ public class UploadFileConfiguration {
 				stream.write(bytes);
 				stream.close();
 				
+				//Map data for inserting to database, table attach
 				Map<String, Object> fileDetail =new HashMap<>();
 				fileDetail.put("name", file.getName());
 				fileDetail.put("originalName", file.getOriginalFilename());

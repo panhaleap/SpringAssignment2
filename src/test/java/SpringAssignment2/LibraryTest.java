@@ -6,9 +6,18 @@ package SpringAssignment2;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
         Library classUnderTest = new Library();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+        
+        System.out.println(System.getProperty("user.dir")+ "\\src\\main\\webapp\\resources");
+    
+        Path currentRelativePath = Paths.get("");
+        String s = currentRelativePath.toAbsolutePath().toString();
+        System.out.println("Current relative path is: " + s);    
     }
 }
