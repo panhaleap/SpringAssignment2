@@ -37,7 +37,7 @@
 						<img class = "image" alt="" th:src="@{/resources/Files/{path}(path=${attach.originalName})}">
 					</div> -->
 					<div>
-						<!-- <img class = "image" alt="" th:src="@{/resources/Files/power_girl.png}"> -->
+						<!-- <img class = "image" alt="" th:if="!${#lists.isEmpty(attachList)}" th:each="attach : ${attachList}" th:src="${attach.path} +'\'+ ${attach.originalName}"> -->
 						<img class = "image" alt="" th:if="!${#lists.isEmpty(attachList)}" th:each="attach : ${attachList}" th:src="@{/resources/Files/{path}(path=${attach.originalName})}">
 					</div>
 					<hr>
