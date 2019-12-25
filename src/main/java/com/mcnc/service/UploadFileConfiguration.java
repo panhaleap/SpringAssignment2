@@ -67,7 +67,10 @@ public class UploadFileConfiguration {
 				fileDetail.put("originalName", file.getOriginalFilename());
 				fileDetail.put("size", file.getSize());
 				fileDetail.put("contentType", file.getContentType());
-				fileDetail.put("path", dir.getPath());
+				
+				//Replace string from \ to /
+				String path = dir.getPath().replaceAll("\\\\", "/");
+				fileDetail.put("path", path);
 				
 				logger.info("Server File Location="
 						+ serverFile.getAbsolutePath());

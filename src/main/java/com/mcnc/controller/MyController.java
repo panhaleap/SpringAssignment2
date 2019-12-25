@@ -20,7 +20,7 @@ public class MyController {
     public String index(Model model) {
 
        model.addAttribute("message", "Hello Spring MVC 5!");
-       return "hello";
+       return "hello"; 
    }
     
     @GetMapping("/upload")

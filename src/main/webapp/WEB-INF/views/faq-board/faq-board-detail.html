@@ -38,6 +38,7 @@
 					</div> -->
 					<div>
 						<!-- <img class = "image" alt="" th:if="!${#lists.isEmpty(attachList)}" th:each="attach : ${attachList}" th:src="${attach.path} +'\'+ ${attach.originalName}"> -->
+						<!-- <img alt="" src="D:/workspace/SpringAssignment2/src/main/webapp/resources/Files/piggy-bank-icon.png"> -->
 						<img class = "image" alt="" th:if="!${#lists.isEmpty(attachList)}" th:each="attach : ${attachList}" th:src="@{/resources/Files/{path}(path=${attach.originalName})}">
 					</div>
 					<hr>

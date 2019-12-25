@@ -16,13 +16,13 @@
 			<h1 class ="welcome-text" style="color: white">Frequently Asked Questions</h1>
 			<div class="accordion" th:each="board : ${boardList}">
 				<div class="accordion-item" th:id="'board' + ${board.id}">
-					<a class="accordion-link" th:href="'#board' + ${board.id}" th:text="${board.title} + ' (' + ${board.viewCount} +' views)'">
+					<a class="accordion-link" th:href="'#board' + ${board.id}" th:utext="${board.title} + ' (' + ${board.viewCount} +' views)'">
 						<!-- Question goes here! -->
 						<i class="icon ion-md-add"></i>
 						<i class="icon ion-md-remove"></i>
 					</a>
 					<div class="answer">
-						<p th:text="${board.html}" >
+						<p th:utext="${board.html}" >
 						<!-- Answer goes here! -->						
 						</p>
 						<a th:href="@{'/faq/faqBoardDetail?boardId=' + ${board.id}}">(Detail)</a>

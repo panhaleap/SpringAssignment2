@@ -18,6 +18,11 @@ public class LibraryTest {
     
         Path currentRelativePath = Paths.get("");
         String s = currentRelativePath.toAbsolutePath().toString();
-        System.out.println("Current relative path is: " + s);    
+        System.out.println("Current relative path is: " + s);
+        
+        
+        String path = "D:\\workspace\\SpringAssignment2\\src\\main\\webapp\\resources\\Files";
+        path = path.replaceAll("\\\\", "/");
+        System.out.println(path);
     }
 }
